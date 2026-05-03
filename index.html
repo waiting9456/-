@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的翻書電子檔</title>
+    <style>
+        /* --- 你的 CSS 內容 --- */
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #dcdcdc;
+          overflow: hidden;
+        }
+
+        .book {
+          width: 450px;
+          height: 450px;
+          position: relative;
+          perspective: 1500px;
+        }
+
+        .book::after {
+          content: '';
+          position: absolute;
+          left: -2px;
+          top: 0;
+          width: 4px;
+          height: 100%;
+          background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+          z-index: 100;
+          pointer-events: none;
+        }
+
+        .page {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform-origin: left center;
+          transform-style: preserve-3d;
+          transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .front, .back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          background-size: cover;
+          background-position: center;
+          border: 1px solid rgba(0,0,0,0.1);
+          box-sizing: border-box;
+        }
+
+        .front::after, .back::after {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .front {
+          border-radius: 0 5px 5px 0;
+          z-index: 2;
+        }
+
+        .front::after {
+          background: linear-gradient(to right, rgba(255,255,255,0) 90%, rgba(0,0,0,0.05) 100%);
+        }
+
+        .back {
+          transform: rotateY(180deg);
+          border-radius: 5px 0 0 5px;
+          z-index: 1;
+        }
+
+        .back::after {
+          background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 20%);
+        }
+
+        .page.flipped {
+          transform: rotateY(-180deg);
+        }
+
+        .page {
+          box-shadow: 2px 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- 你的 HTML 內容 --- -->
+    <div class="book">
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-01.png?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-02.png?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-03.png?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-04.png?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-05.png?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-06.png?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-07.png?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-08.png?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-09.png?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/129685_0.jpg?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/129686_0.jpg?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/129687_0.jpg?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/129688_0.jpg?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/129689_0.jpg?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/129690_0.jpg?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/129691_0.jpg?raw=true');"></div>
+      </div>
+
+      <div class="page">
+        <div class="front" style="background-image: url('https://github.com/waiting9456/-/blob/main/129692_0.jpg?raw=true');"></div>
+        <div class="back" style="background-image: url('https://github.com/waiting9456/-/blob/main/%E6%9C%AA%E5%91%BD%E5%90%8D-2-10.png?raw=true');"></div>
+      </div>
+    </div>
+
+    <script>
+        /* --- 你的 JavaScript 內容 --- */
+        const pages = document.querySelectorAll('.page');
+        let currentPage = 0;
+
+        pages.forEach((page, index) => {
+          page.style.zIndex = pages.length - index;
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') {
+            if (currentPage < pages.length) {
+              const page = pages[currentPage];
+              page.classList.add('flipped');
+              page.style.zIndex = pages.length + currentPage;
+              currentPage++;
+            }
+          } 
+          else if (e.key === 'ArrowLeft') {
+            if (currentPage > 0) {
+              currentPage--;
+              const page = pages[currentPage];
+              page.classList.remove('flipped');
+              setTimeout(() => {
+                page.style.zIndex = pages.length - currentPage;
+              }, 500);
+            }
+          }
+        });
+
+        pages.forEach((page, index) => {
+          page.onclick = function() {
+            if (this.classList.contains('flipped')) {
+              this.classList.remove('flipped');
+              currentPage = index;
+              setTimeout(() => {
+                this.style.zIndex = pages.length - index;
+              }, 500);
+            } else {
+              this.classList.add('flipped');
+              this.style.zIndex = pages.length + index;
+              currentPage = index + 1;
+            }
+          }
+        });
+    </script>
+</body>
+</html>
